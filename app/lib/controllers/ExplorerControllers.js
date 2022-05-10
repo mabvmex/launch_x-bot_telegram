@@ -1,6 +1,5 @@
 const Reader = require("./../utils/Reader");
 const ExplorerService = require("./../services/ExplorerService");
-// eslint-disable-next-line no-unused-vars
 const FizzBuzzService = require("./../services/FizzbuzzService");
 
 class ExplorerController {
@@ -15,23 +14,30 @@ class ExplorerController {
 
     static getExplorersUsernamesByMission(mission) {
         const explorer = Reader.readJsonFile("explorers.json");
-        const usernamesFiltrado = ExplorerService.getExplorersUsernamesByMission(
-            explorer,
-            mission
-        );
+        const usernamesFiltrado =
+            ExplorerService.getExplorersUsernamesByMission(explorer, mission);
 
         return usernamesFiltrado;
     }
 
     static getExplorersAmonutByMission(mission) {
         const explorers = Reader.readJsonFile("explorers.json");
-        const amountofExplorers = ExplorerService.getAmountOfExplorersByMission(explorers, mission);
+        const amountofExplorers = ExplorerService.getAmountOfExplorersByMission(
+            explorers,
+            mission
+        );
         return amountofExplorers;
+    }
+
+    static getResultInNumberOnly(number) {
+        const userResult = FizzBuzzService.applyValidationInNumber(number);
+        return userResult;
     }
 }
 
 // ExplorerController.getExplorerByMission("node");
 // ExplorerController.getExplorersUsernamesByMission("node");
 // ExplorerController.getExplorersAmonutByMission("node");
+// console.log(ExplorerController.getResultInNumberOnly(15));
 
 module.exports = ExplorerController;
