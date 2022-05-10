@@ -9,9 +9,9 @@ const mission = "node";
 
 // eslint-disable-next-line no-unused-vars
 const inMission = ExplorerService.filterByMission(explorers, mission);
-console.log(`1.- Los explorer de la mision ${mission.toUpperCase()} son: `);
-console.log(inMission);
-console.log("=============================================\n");
+// console.log(`1.- Los explorer de la mision ${mission.toUpperCase()} son: `);
+// console.log(inMission);
+// console.log("=============================================\n");
 
 // eslint-disable-next-line no-unused-vars
 const cantidad = ExplorerService.getAmountOfExplorersByMission(explorers, mission);
@@ -33,17 +33,33 @@ const explorer15 = {name: "Miguel", score: 15}; // {name: "Explorer15", score: 1
 
 
 // eslint-disable-next-line no-unused-vars
-const uno = FizzbuzzService.applyValidationInExplorer(explorer1);
+// const uno = FizzbuzzService.applyValidationInExplorer(explorer1);
 // console.log(`El explorer ${explorer1.name} obtiene = ${uno}`);
 
 // eslint-disable-next-line no-unused-vars
-const tres = FizzbuzzService.applyValidationInExplorer(explorer3); 
+// const tres = FizzbuzzService.applyValidationInExplorer(explorer3); 
 // console.log(`El explorer ${explorer3.name} obtiene = ${tres}`);
 
 // eslint-disable-next-line no-unused-vars
-const cinco = FizzbuzzService.applyValidationInExplorer(explorer5); 
+// const cinco = FizzbuzzService.applyValidationInExplorer(explorer5); 
 // console.log(`El explorer ${explorer5.name} obtiene = ${cinco}`);
 
 // eslint-disable-next-line no-unused-vars
-const quince = FizzbuzzService.applyValidationInExplorer(explorer15); 
+// const quince = FizzbuzzService.applyValidationInExplorer(explorer15); 
 // console.log(`El explorer ${explorer15.name} obtiene = ${quince}`);
+
+
+// const number1 = 1;
+// const number3 = 3;
+// const number5 = 5;
+// const number15 = 15;
+
+// const usuarioUno = FizzbuzzService.applyValidationInNumber(number1);
+// console.log(usuarioUno);
+// const usuarioTres = FizzbuzzService.applyValidationInNumber(number3);
+// console.log(usuarioTres);
+// const usuarioCinco = FizzbuzzService.applyValidationInNumber(number5);
+// console.log(usuarioCinco);
+// const usuarioQuince = FizzbuzzService.applyValidationInNumber(number15);
+// console.log(usuarioQuince);
+
