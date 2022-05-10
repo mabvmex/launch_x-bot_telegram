@@ -10,7 +10,6 @@ class ExplorerController {
             explorer,
             mission
         );
-        console.log(explorerServiceFiltrado);
         return explorerServiceFiltrado;
     }
 
@@ -20,7 +19,6 @@ class ExplorerController {
             explorer,
             mission
         );
-        console.log(usernamesFiltrado);
 
         return usernamesFiltrado;
     }
@@ -28,7 +26,6 @@ class ExplorerController {
     static getExplorersAmonutByMission(mission) {
         const explorers = Reader.readJsonFile("explorers.json");
         const amountofExplorers = ExplorerService.getAmountOfExplorersByMission(explorers, mission);
-        console.log(amountofExplorers);
         return amountofExplorers;
     }
 }
