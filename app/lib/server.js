@@ -1,4 +1,5 @@
 const ExplorerController = require("./controllers/ExplorerControllers");
+// const FizzbuzzService = require("./services/FizzbuzzService");
 const express = require("express");
 const app = express();
 
@@ -35,6 +36,15 @@ app.get("/v1/explorer/amount/:mission", (req, res) => {
     res.json({
         mission: req.params.mission,
         amountOfExplorers: amountOfExplorers,
+    });
+});
+
+app.get("/v1/fizzbuzz/:score", (req, res) => {
+    const score = req.params.score;
+    const result = ExplorerController.getResultInNumberOnly(score);
+    res.json({
+        score,
+        trick: result
     });
 });
 
