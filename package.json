@@ -4,7 +4,7 @@
   "description": "Ejercicio 1 de la semana 4 del programa launchx - backend: NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/jest",
+    "test": "node ./node_modules/.bin/jest --runInBand --detectOpenHandles --forceExit",
     "linter": "node ./node_modules/eslint/bin/eslint.js .",
     "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix"
   },

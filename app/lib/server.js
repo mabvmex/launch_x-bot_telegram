@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`=== FizzBuzz API in localhost:${port} ===`);
+    console.log(`=== API FizzBuzz 2.0 in localhost:${port} ===`);
 });
 
 app.get("/v1/explorer/:mission", (req, res) => {
