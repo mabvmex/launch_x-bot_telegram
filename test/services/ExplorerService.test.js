@@ -21,4 +21,11 @@ describe("Unit test for 'ExplorerService' ", () => {
         const exploresUsernames = ExplorerService.getExplorersUsernamesByMission(explorers, "node");
         expect(exploresUsernames[0]).toBe("ajolonauta1");
     });
+
+    test("5.- for getExplorersUsernamesByStack", () => {
+        const exploresUsernamesByStack = ExplorerService.getExplorersUsernamesByStack(explorers, "groovy");
+        expect(exploresUsernamesByStack[0]).toBe("ajolonauta2");
+    });
+
+
 });
