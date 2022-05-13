@@ -3,6 +3,8 @@ const ExplorerService = require("./../services/ExplorerService");
 const FizzBuzzService = require("./../services/FizzbuzzService");
 
 class ExplorerController {
+    mission = "node";
+
     static getExplorerByMission(mission) {
         const explorer = Reader.readJsonFile("explorers.json");
         const explorerServiceFiltrado = ExplorerService.filterByMission(
@@ -42,6 +44,26 @@ class ExplorerController {
         );
         return explorerStack;
     }
+
+    // ======== CodeChallenge ========
+
+    static getAllVisualExplorers() {
+        const visualExplorers = Reader.readJsonFile("visualpartners.json");
+        return visualExplorers;
+    }
+
+    // static getVisualExplorersCertified(certificado) {
+    //     const visualExplorers = Reader.readJsonFile("visualpartners.json");
+    //     const explorerCert = ExplorerService.getVisualExplorerByEmail(
+    //         visualExplorers,
+    //         certificado
+    //     );
+    //     return explorerCert;
+    // }
 }
 
+// console.log(ExplorerController.getAllVisualExplorers());
+// ExplorerController.getAllVisualExplorers();
+
+// console.log(ExplorerController.getVisualExplorersCertified());
 module.exports = ExplorerController;
