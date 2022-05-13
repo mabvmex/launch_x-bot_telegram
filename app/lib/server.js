@@ -48,5 +48,14 @@ app.get("/v1/fizzbuzz/:score", (req, res) => {
     });
 });
 
+app.get("/v1/explorer/stack/:stack", (req, res) => {
+    const stack = req.params.stack;
+    const result = ExplorerController.getExplorerByStack(stack);
+    res.json({
+        stack: req.params.stack,
+        explorers: result
+    });
+});
+
 
 module.exports = app;

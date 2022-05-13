@@ -20,6 +20,11 @@ describe("== Unit Testing for server.js ==", () => {
     test("4.- Solicitud GET para '/v1/explorer/amount/node' muestra 'status code' 200", async () => {
         const response = await request(app).get("/v1/explorer/amount/node").send();
         expect(response.statusCode).toBe(200);
+    }
+    );
+    test("5.- Solicitud GET para '/v1/explorer/stack/javascript' muestra 'status code' 200", async () => {
+        const response = await request(app).get("/v1/explorer/stack/javascript").send();
+        expect(response.statusCode).toBe(200);
     });
 
 });

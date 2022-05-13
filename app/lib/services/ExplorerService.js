@@ -1,8 +1,7 @@
 class ExplorerService {
     // mission = "node";
-  
-    static filterByMission(explorers, mission) {
 
+    static filterByMission(explorers, mission) {
         const explorersInNode = explorers.filter(
             (explorer) => explorer.mission == mission
         );
@@ -10,7 +9,6 @@ class ExplorerService {
             (explorers) => explorers.name
         );
         return usernamesInMission;
-    
     }
     static getAmountOfExplorersByMission(explorers, mission) {
         const explorersInNodeToGetUsernames = explorers.filter(
@@ -30,6 +28,16 @@ class ExplorerService {
         return usernamesInNode;
     }
 
+    static getExplorersUsernamesByStack(explorers, stack) {
+        const explorers_JSstack = explorers.filter(
+            (singleExplorer) => singleExplorer.stacks.includes(stack)
+        );
+
+        const usernames_JSstack = explorers_JSstack.map(
+            (singleExplorer_JSstack) => singleExplorer_JSstack.githubUsername
+        );
+        return usernames_JSstack;
+    }
 }
 
 module.exports = ExplorerService;

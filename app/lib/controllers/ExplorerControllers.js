@@ -33,11 +33,15 @@ class ExplorerController {
         const userResult = FizzBuzzService.applyValidationInNumber(number);
         return userResult;
     }
-}
 
-// ExplorerController.getExplorerByMission("node");
-// ExplorerController.getExplorersUsernamesByMission("node");
-// ExplorerController.getExplorersAmonutByMission("node");
-// console.log(ExplorerController.getResultInNumberOnly(15));
+    static getExplorerByStack(stack) {
+        const explorer = Reader.readJsonFile("explorers.json");
+        const explorerStack = ExplorerService.getExplorersUsernamesByStack(
+            explorer,
+            stack
+        );
+        return explorerStack;
+    }
+}
 
 module.exports = ExplorerController;
