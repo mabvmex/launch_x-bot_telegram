@@ -66,7 +66,7 @@ app.get("/v1/visualexplorer/visualpartnership", (req, res) => {
 
 
 app.get(
-    "/v1/visualexplorer/visualpartner/certified/:haveCertification",
+    "/v1/visualexplorer/visualpartnership/certified/:haveCertification",
     (req, res) => {
         const certified = req.params.haveCertification;
         const certificados = JSON.parse(certified);
