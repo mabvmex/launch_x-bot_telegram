@@ -1,6 +1,4 @@
 class ExplorerService {
-    // mission = "node";
-
     static filterByMission(explorers, mission) {
         const explorersInNode = explorers.filter(
             (explorer) => explorer.mission == mission
@@ -29,14 +27,24 @@ class ExplorerService {
     }
 
     static getExplorersUsernamesByStack(explorers, stack) {
-        const explorers_JSstack = explorers.filter(
-            (singleExplorer) => singleExplorer.stacks.includes(stack)
+        const explorers_JSstack = explorers.filter((singleExplorer) =>
+            singleExplorer.stacks.includes(stack)
         );
 
         const usernames_JSstack = explorers_JSstack.map(
             (singleExplorer_JSstack) => singleExplorer_JSstack.githubUsername
         );
         return usernames_JSstack;
+    }
+
+    // ======== CodeChallenge ========
+
+    static getVisualExplorerByEmail(visualExplorers, certificado) {
+        const explorersInVisual = visualExplorers.filter((explorer) => explorer.haveCertification === certificado);
+        const emailInVisual = explorersInVisual.map(
+            (explorers) => explorers.email
+        );
+        return emailInVisual;
     }
 }
 

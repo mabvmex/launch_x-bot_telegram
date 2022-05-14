@@ -58,17 +58,25 @@ app.get("/v1/explorer/stack/:stack", (req, res) => {
 
 // ======== CodeChallenge ========
 
-app.get("/v1/visualexplorer/visualpartnership", (req, res) => {
 // app.get("/v1/explorer/visualpartnership", (req, res) => {
+app.get("/v1/visualexplorer/visualpartnership", (req, res) => {
     const explorersInVisual = ExplorerController.getAllVisualExplorers();
     res.json({ explorersInVisual });
 });
 
-app.get("/v1/visualpartnership/:boolean", (req, res) => {
-    const certifiedExplorers = req.params;
-    const explorersInVisual =
-        ExplorerController.getVisualExplorersCertified(certifiedExplorers);
-    res.json({ explorersInVisual: explorersInVisual });
-});
+
+app.get(
+    "/v1/visualexplorer/visualpartner/certified/:haveCertification",
+    (req, res) => {
+        const certified = req.params.haveCertification;
+        const certificados = JSON.parse(certified);
+        const certExplorersInVisual =
+        ExplorerController.getVisualExplorersCertified(certificados);
+        res.json({
+            haveCertification: req.params.haveCertification,
+            explorers: certExplorersInVisual,
+        });
+    }
+);
 
 module.exports = app;

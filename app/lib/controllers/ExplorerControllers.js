@@ -52,18 +52,19 @@ class ExplorerController {
         return visualExplorers;
     }
 
-    // static getVisualExplorersCertified(certificado) {
-    //     const visualExplorers = Reader.readJsonFile("visualpartners.json");
-    //     const explorerCert = ExplorerService.getVisualExplorerByEmail(
-    //         visualExplorers,
-    //         certificado
-    //     );
-    //     return explorerCert;
-    // }
+    static getVisualExplorersCertified(certified) {
+        const visualExplorers = Reader.readJsonFile("visualpartners.json");
+        const explorerCertificado = ExplorerService.getVisualExplorerByEmail(
+            visualExplorers,
+            certified
+        );
+        return explorerCertificado;
+    }
 }
 
-// console.log(ExplorerController.getAllVisualExplorers());
-// ExplorerController.getAllVisualExplorers();
+console.log(
 
-// console.log(ExplorerController.getVisualExplorersCertified());
+    // ExplorerController.getVisualExplorersCertified(true)
+); 
+
 module.exports = ExplorerController;
