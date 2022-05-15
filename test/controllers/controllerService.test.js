@@ -2,6 +2,7 @@ const ExplorerController = require("../../app/lib/controllers/ExplorerController
 const ExplorerService = require("./../../app/lib/services/ExplorerService");
 const Reader = require("./../../app/lib/utils/Reader");
 const explorer = Reader.readJsonFile("explorers.json");
+const explorerVisual = Reader.readJsonFile("visualpartners.json");
 
 describe("Unit Test for controllerService", () => {
     test("1.- getExplorerByMission: ", () => {
@@ -48,6 +49,13 @@ describe("Unit Test for controllerService", () => {
             stack
         );
         expect(getExplorers[0]).toBe("ajolonauta1");
+    });
+
+    test("6.- CodeChallenge > getAllVisualExplorers", () => {
+        const getExplorers = ExplorerController.getAllVisualExplorers(
+            explorerVisual
+        );
+        expect(getExplorers[0].name).toBe("Warren");
     });
 
 
