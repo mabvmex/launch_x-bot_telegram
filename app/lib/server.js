@@ -15,6 +15,8 @@ app.listen(port, () => {
     console.log(`=== API FizzBuzz 2.0 in localhost:${port} ===`);
 });
 
+// ======== Refactoring ========
+
 app.get("/v1/explorer/:mission", (req, res) => {
     const mission = req.params.mission;
     const explorersInMission = ExplorerController.getExplorerByMission(mission);
@@ -38,6 +40,8 @@ app.get("/v1/explorer/amount/:mission", (req, res) => {
     });
 });
 
+// ======== FIZZBUZZ ========
+
 app.get("/v1/fizzbuzz/:score", (req, res) => {
     const score = req.params.score;
     const result = ExplorerController.getResultInNumberOnly(score);
@@ -58,24 +62,33 @@ app.get("/v1/explorer/stack/:stack", (req, res) => {
 
 // ======== CodeChallenge ========
 
-// app.get("/v1/explorer/visualpartnership", (req, res) => {
-app.get("/v1/visualexplorer/visualpartnership", (req, res) => {
+app.get("/v1/students", (req, res) => {
     const explorersInVisual = ExplorerController.getAllVisualExplorers();
-    res.json({ explorersInVisual });
+    res.json({
+        explorers: explorersInVisual.length,
+        explorersInVisual,
+    });
 });
 
-
 app.get(
-    "/v1/visualexplorer/visualpartnership/certified/:haveCertification",
+    "/v1/students/email/:haveCertification",
     (req, res) => {
         const certified = JSON.parse(req.params.haveCertification);
         const certExplorersInVisual =
-        ExplorerController.getVisualExplorersCertified(certified);
+            ExplorerController.getVisualExplorersCertified(certified);
         res.json({
             haveCertification: req.params.haveCertification,
             explorers: certExplorersInVisual,
         });
     }
 );
+
+app.get("/v1/students/credits", (req, res) => {
+    const credits = ExplorerController.getVisualExplorerWithCredits();
+    res.json({ 
+        TotalExplores: credits.length,
+        criteria: "credits > 500",
+        explorers: credits });
+});
 
 module.exports = app;

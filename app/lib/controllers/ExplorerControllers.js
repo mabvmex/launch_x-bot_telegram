@@ -5,6 +5,8 @@ const FizzBuzzService = require("./../services/FizzbuzzService");
 class ExplorerController {
     mission = "node";
 
+    // ======== Refactoring ========
+
     static getExplorerByMission(mission) {
         const explorer = Reader.readJsonFile("explorers.json");
         const explorerServiceFiltrado = ExplorerService.filterByMission(
@@ -22,7 +24,7 @@ class ExplorerController {
         return usernamesFiltrado;
     }
 
-    static getExplorersAmonutByMission(mission) {
+    static getExplorersAmountByMission(mission) {
         const explorers = Reader.readJsonFile("explorers.json");
         const amountofExplorers = ExplorerService.getAmountOfExplorersByMission(
             explorers,
@@ -30,6 +32,8 @@ class ExplorerController {
         );
         return amountofExplorers;
     }
+
+    // ======== FIZZBUZZ ========
 
     static getResultInNumberOnly(number) {
         const userResult = FizzBuzzService.applyValidationInNumber(number);
@@ -58,13 +62,23 @@ class ExplorerController {
             visualExplorers,
             certified
         );
+
         return explorerCertificado;
+    }
+
+    static getVisualExplorersWithCredits() {
+        const visualExplorers = Reader.readJsonFile("visualpartners.json");
+        const explorersWithCredits =
+            ExplorerService.getVisualExplorerByCredits(visualExplorers);
+        return explorersWithCredits;
     }
 }
 
-console.log(
 
-    // ExplorerController.getVisualExplorersCertified(true)
-); 
+//7.- Sí entrega pero NO PASA
+const emailList = ExplorerController.getVisualExplorersCertified(true);
+// console.log(emailList);
+console.log(emailList[0]);
+
 
 module.exports = ExplorerController;
