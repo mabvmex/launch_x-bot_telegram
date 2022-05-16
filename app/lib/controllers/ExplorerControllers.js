@@ -75,10 +75,4 @@ class ExplorerController {
 }
 
 
-//7.- Sí entrega pero NO PASA
-const emailList = ExplorerController.getVisualExplorersCertified(true);
-// console.log(emailList);
-console.log(emailList[0]);
-
-
 module.exports = ExplorerController;

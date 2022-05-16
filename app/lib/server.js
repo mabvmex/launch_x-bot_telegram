@@ -33,7 +33,7 @@ app.get("/v1/explorer/usernames/:mission", (req, res) => {
 app.get("/v1/explorer/amount/:mission", (req, res) => {
     const mission = req.params.mission;
     const amountOfExplorers =
-        ExplorerController.getExplorersAmonutByMission(mission);
+        ExplorerController.getExplorersAmountByMission(mission);
     res.json({
         mission: req.params.mission,
         amountOfExplorers: amountOfExplorers,
@@ -84,7 +84,7 @@ app.get(
 );
 
 app.get("/v1/students/credits", (req, res) => {
-    const credits = ExplorerController.getVisualExplorerWithCredits();
+    const credits = ExplorerController.getVisualExplorersWithCredits();
     res.json({ 
         TotalExplores: credits.length,
         criteria: "credits > 500",
