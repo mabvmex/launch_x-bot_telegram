@@ -40,16 +40,19 @@ app.get("/v1/explorer/amount/:mission", (req, res) => {
     });
 });
 
-// ======== FIZZBUZZ ========
+// ======== 3. FIZZBUZZ ========
 
 app.get("/v1/fizzbuzz/:score", (req, res) => {
     const score = req.params.score;
     const result = ExplorerController.getResultInNumberOnly(score);
     res.json({
-        score,
+        solicitud: "/v1/fizzbuzz/" + score,
+        score: score,
         trick: result,
     });
 });
+
+// ======== 4. Explorers By Stack ========
 
 app.get("/v1/explorer/stack/:stack", (req, res) => {
     const stack = req.params.stack;
@@ -60,7 +63,7 @@ app.get("/v1/explorer/stack/:stack", (req, res) => {
     });
 });
 
-// ======== CodeChallenge ========
+// ======== 5. CodeChallenge ========
 
 app.get("/v1/students", (req, res) => {
     const explorersInVisual = ExplorerController.getAllVisualExplorers();
