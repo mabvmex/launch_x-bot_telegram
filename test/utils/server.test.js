@@ -38,5 +38,18 @@ describe("== Unit Testing for server.js [Code Challenge] [VisualPartnership DB]"
         const response = await request(app).get("/v1/students").send();
         expect(response.statusCode).toBe(200);
     });
+    test("2.- Endpoint for 'true: emails'", async () => {
+        const response = await request(app).get("/v1/students/email/true").send();
+        expect(response._body.haveCertification).toBe("true");
+    });
+
+    test("3.-- Endpoint for 'false: emails'", async () => {
+        const response = await request(app).get("/v1/students/email/false").send();
+        expect(response._body.haveCertification).toBe("false");
+    });
+    test("4.- Endpoint for 'credits > 500'", async () => {
+        const response = await request(app).get("/v1/students/credits").send();
+        expect(response.statusCode).toBe(200);
+    });
 
 });
