@@ -5,15 +5,25 @@ const app = express();
 app.use(express.json());
 const port = 3000;
 
-app.get("/", (req, res) => {
+app.get("/", (req, res, err) => {
     res.json({
         message: "=== FizzBuzz API welcome! ===",
     });
 });
 
 app.listen(port, () => {
+    var err;
+    if (err) {
+        console.log("Error in server setup", err);
+    }
     console.log(`=== API FizzBuzz 2.0 in localhost:${port} ===`);
 });
+
+// listen for an event
+// eslint-disable-next-line no-unused-vars
+var handler = function () {
+    app.close();
+};
 
 // ======== Refactoring ========
 
@@ -73,25 +83,23 @@ app.get("/v1/students", (req, res) => {
     });
 });
 
-app.get(
-    "/v1/students/email/:haveCertification",
-    (req, res) => {
-        const certified = JSON.parse(req.params.haveCertification);
-        const certExplorersInVisual =
-            ExplorerController.getVisualExplorersCertified(certified);
-        res.json({
-            haveCertification: req.params.haveCertification,
-            explorers: certExplorersInVisual,
-        });
-    }
-);
+app.get("/v1/students/email/:haveCertification", (req, res) => {
+    const certified = JSON.parse(req.params.haveCertification);
+    const certExplorersInVisual =
+        ExplorerController.getVisualExplorersCertified(certified);
+    res.json({
+        haveCertification: req.params.haveCertification,
+        explorers: certExplorersInVisual,
+    });
+});
 
 app.get("/v1/students/credits", (req, res) => {
     const credits = ExplorerController.getVisualExplorersWithCredits();
-    res.json({ 
+    res.json({
         TotalExplores: credits.length,
         criteria: "credits > 500",
-        explorers: credits });
+        explorers: credits,
+    });
 });
 
 module.exports = app;
