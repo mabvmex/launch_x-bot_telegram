@@ -19,12 +19,6 @@ app.listen(port, () => {
     console.log(`=== API FizzBuzz 2.0 in localhost:${port} ===`);
 });
 
-// listen for an event
-// eslint-disable-next-line no-unused-vars
-var handler = function () {
-    app.close();
-};
-
 // ======== Refactoring ========
 
 app.get("/v1/explorer/:mission", (req, res) => {

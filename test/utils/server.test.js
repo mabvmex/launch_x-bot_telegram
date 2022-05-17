@@ -35,7 +35,7 @@ describe("== Unit Testing for server.js ==", () => {
 
 describe("== Unit Testing for server.js [Code Challenge] [VisualPartnership DB]", () => {
     test("1.- Endpoint for 'all students'", async () => {
-        const response = await request(app).get("/v1/visualexplorer/visualpartnership").send();
+        const response = await request(app).get("/v1/students").send();
         expect(response.statusCode).toBe(200);
     });
 
