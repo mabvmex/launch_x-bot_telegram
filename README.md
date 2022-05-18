@@ -1,8 +1,7 @@
-# 3.- Ejercicio para "FizzBuzz"
+# 3.- Ejercicio para "FizzBuzz" <br>[Semana 4] 
 
-<!--Endpoints con expressJs + contribución OpenSource + Code Challenge! -->
 <!-- "Cobraremos por cada request que recibamos." -->
-
+<!-- Endpoints con expressJs + contribución OpenSource + Code Challenge!<br> -->
 ## Agregando nuevos endpoints.
 
 Se agregan nuevos requeriemientos basados en la práctica de [Launch_X-FizzBuzz](https://github.com/mabvmex/launch_x-API-Fizzbuzz). <br>
