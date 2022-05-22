@@ -7,11 +7,12 @@ El bot de Telegram respondera de acuerdo a los criterios establecidos en la prá
 - Se entregará _`'BUZZ'`_, si se envía como _'score'_ un número que sea multiplo de `5`.
 - Se entregará _`'FIZZBUZZ'`_, si se envía como _'score'_ un número que sea multiplo de `3 y 5`.
 - Se entregará el número  mismo que se envía si no cumple ninguno de los casos anteriores.
+- Se entregará el nombre de los usuarios de la misión que se elija: _`node`_ / _`java`_.
 
 <br>
 <p align="center">
-<img width="450px" src="./app/assets/bot Telegram.png" alt="fizzbuzz-1"/> &nbsp;&nbsp;
-</p>◊
+<img width="650px" src="./app/assets/bot-telegram.png" alt="fizzbuzz-1"/> &nbsp;
+</p>
 <br>
 
 # Dependencias
