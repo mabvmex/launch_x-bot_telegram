@@ -28,12 +28,27 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 bot.on("message", (msg) => {
     const chatId = msg.chat.id;
     const numberToApplyFb = parseInt(msg.text);
+    const missionToApplyFb = msg.text;
 
     if (!isNaN(numberToApplyFb)) {
-        const fizzbuzzTrick = ExplorerController.getResultInNumberOnly(numberToApplyFb);
-        const responseBot = `Tu número es: ${numberToApplyFb}. Validación: ${fizzbuzzTrick}`;
+        const fizzbuzzTrick =
+            ExplorerController.getResultInNumberOnly(numberToApplyFb);
+        const responseBot = `Tu número es: ${numberToApplyFb}.\nValidación: ${fizzbuzzTrick}`;
+        bot.sendMessage(chatId, responseBot);
+    } else if (missionToApplyFb === "node" || missionToApplyFb === "java") {
+        const fizzbuzzTrick =
+            ExplorerController.getExplorerByMission(missionToApplyFb);
+
+        const splitWoopas = fizzbuzzTrick.map((item) => item.split(",")).flat();
+        const woopasSplitted = splitWoopas.join(", ");
+
+        const responseBot = `Tu misión es: "${missionToApplyFb.toUpperCase()}".\nValidación: ${woopasSplitted}`;
+
         bot.sendMessage(chatId, responseBot);
     } else {
-        bot.sendMessage(chatId, "Envía un número válido");
+        bot.sendMessage(
+            chatId,
+            "Envía un número (número primo de 3 y/o 5) o una palabra válida (node / java)"
+        );
     }
 });
