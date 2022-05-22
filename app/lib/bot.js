@@ -30,7 +30,7 @@ bot.on("message", (msg) => {
     const numberToApplyFb = parseInt(msg.text);
 
     if (!isNaN(numberToApplyFb)) {
-        const fizzbuzzTrick = ExplorerController.applyFizzbuzz(numberToApplyFb);
+        const fizzbuzzTrick = ExplorerController.getResultInNumberOnly(numberToApplyFb);
         const responseBot = `Tu número es: ${numberToApplyFb}. Validación: ${fizzbuzzTrick}`;
         bot.sendMessage(chatId, responseBot);
     } else {
